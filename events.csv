@@ -1,1 +1,4 @@
 round,time_sec,fighter,strike,target,result
+1,12.1,red,jab,head,landed
+1,12.5,red,cross,head,blocked
+1,14.0,blue,kick,leg,landed
