@@ -1,5 +1,5 @@
 import csv
-counta = {}
+counts = {}
 with open("events.csv") as x:
   for row in csv.DictReader(x):
     key = (row["fighter"], row["strike"], row["result"])
