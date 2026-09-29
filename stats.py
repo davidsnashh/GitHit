@@ -13,7 +13,7 @@ def read_events(path):
         return list(csv.DictReader(f))
 
 
-def count_rounds(events):
+def highest_round(events):
     """Return the highest round number in the events, or 0 if none."""
     rounds = 0
     for event in events:
@@ -61,7 +61,7 @@ def fighter_stats(events, fighter, minutes):
 def main():
     """Read the events, compute each fighter's stats, then save and print."""
     events = read_events("events.csv")
-    rounds = count_rounds(events)
+    rounds = highest_round(events)
     minutes = rounds * ROUND_MINUTES
     fighters = {}
     for fighter in FIGHTERS:

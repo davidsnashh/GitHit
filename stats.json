@@ -1,0 +1,29 @@
+{
+  "rounds": 0,
+  "fighters": {
+    "red": {
+      "thrown": 0,
+      "landed": 0,
+      "blocked": 0,
+      "missed": 0,
+      "accuracy": 0.0,
+      "thrown_per_min": 0.0,
+      "landed_per_min": 0.0,
+      "by_strike": {},
+      "by_target": {},
+      "by_round": {}
+    },
+    "blue": {
+      "thrown": 0,
+      "landed": 0,
+      "blocked": 0,
+      "missed": 0,
+      "accuracy": 0.0,
+      "thrown_per_min": 0.0,
+      "landed_per_min": 0.0,
+      "by_strike": {},
+      "by_target": {},
+      "by_round": {}
+    }
+  }
+}
