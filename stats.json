@@ -1,29 +1,119 @@
 {
-  "rounds": 0,
+  "rounds": 1,
   "fighters": {
     "red": {
-      "thrown": 0,
-      "landed": 0,
-      "blocked": 0,
-      "missed": 0,
-      "accuracy": 0.0,
-      "thrown_per_min": 0.0,
-      "landed_per_min": 0.0,
-      "by_strike": {},
-      "by_target": {},
-      "by_round": {}
+      "thrown": 13,
+      "landed": 9,
+      "blocked": 1,
+      "missed": 3,
+      "accuracy": 0.6923076923076923,
+      "thrown_per_min": 2.6,
+      "landed_per_min": 1.8,
+      "by_strike": {
+        "jab": {
+          "thrown": 4,
+          "landed": 2
+        },
+        "cross": {
+          "thrown": 3,
+          "landed": 2
+        },
+        "hook": {
+          "thrown": 2,
+          "landed": 1
+        },
+        "kick": {
+          "thrown": 2,
+          "landed": 2
+        },
+        "uppercut": {
+          "thrown": 1,
+          "landed": 1
+        },
+        "elbow": {
+          "thrown": 1,
+          "landed": 1
+        }
+      },
+      "by_target": {
+        "head": {
+          "thrown": 9,
+          "landed": 5
+        },
+        "body": {
+          "thrown": 2,
+          "landed": 2
+        },
+        "leg": {
+          "thrown": 2,
+          "landed": 2
+        }
+      },
+      "by_round": {
+        "1": {
+          "thrown": 13,
+          "landed": 9
+        }
+      }
     },
     "blue": {
-      "thrown": 0,
-      "landed": 0,
-      "blocked": 0,
-      "missed": 0,
-      "accuracy": 0.0,
-      "thrown_per_min": 0.0,
-      "landed_per_min": 0.0,
-      "by_strike": {},
-      "by_target": {},
-      "by_round": {}
+      "thrown": 11,
+      "landed": 6,
+      "blocked": 2,
+      "missed": 3,
+      "accuracy": 0.5454545454545454,
+      "thrown_per_min": 2.2,
+      "landed_per_min": 1.2,
+      "by_strike": {
+        "kick": {
+          "thrown": 4,
+          "landed": 3
+        },
+        "teep": {
+          "thrown": 1,
+          "landed": 1
+        },
+        "jab": {
+          "thrown": 2,
+          "landed": 1
+        },
+        "cross": {
+          "thrown": 1,
+          "landed": 0
+        },
+        "knee": {
+          "thrown": 1,
+          "landed": 1
+        },
+        "overhand": {
+          "thrown": 1,
+          "landed": 0
+        },
+        "hook": {
+          "thrown": 1,
+          "landed": 0
+        }
+      },
+      "by_target": {
+        "leg": {
+          "thrown": 4,
+          "landed": 3
+        },
+        "body": {
+          "thrown": 2,
+          "landed": 2
+        },
+        "head": {
+          "thrown": 5,
+          "landed": 1
+        }
+      },
+      "by_round": {
+        "1": {
+          "thrown": 11,
+          "landed": 6
+        }
+      }
     }
   }
 }
