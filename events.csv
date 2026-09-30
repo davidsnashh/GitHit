@@ -12,9 +12,9 @@ round,time_sec,fighter,strike,target,result
 1,41.3,blue,cross,head,blocked
 1,55.7,red,kick,leg,landed
 1,63.0,blue,knee,body,landed
-1,78.4,red,uppercut,head,landed
+1,78.4,red,uppercut,head,landed_flush
 1,79.1,red,hook,head,landed
-1,92.8,blue,kick,leg,landed
+1,92.8,blue,kick,leg,landed_flush
 1,110.2,red,jab,head,missed
 1,131.5,blue,overhand,head,missed
 1,150.0,red,elbow,head,landed
