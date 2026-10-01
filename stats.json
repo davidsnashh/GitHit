@@ -4,6 +4,7 @@
     "red": {
       "thrown": 13,
       "landed": 9,
+      "landed_flush": 1,
       "blocked": 1,
       "missed": 3,
       "accuracy": 0.6923076923076923,
@@ -44,7 +45,7 @@
           "thrown": 2,
           "landed": 2
         },
-        "leg": {
+        "legs": {
           "thrown": 2,
           "landed": 2
         }
@@ -59,6 +60,7 @@
     "blue": {
       "thrown": 11,
       "landed": 6,
+      "landed_flush": 1,
       "blocked": 2,
       "missed": 3,
       "accuracy": 0.5454545454545454,
@@ -95,7 +97,7 @@
         }
       },
       "by_target": {
-        "leg": {
+        "legs": {
           "thrown": 4,
           "landed": 3
         },
