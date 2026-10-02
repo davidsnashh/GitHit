@@ -51,21 +51,21 @@ def fighter_stats(events, fighter, minutes):
     return stats
 
 
-def main():
-    events = read_events("events.csv")
+def build_stats(events):
     rounds = highest_round(events)
     minutes = rounds * ROUND_MINUTES
     fighters = {}
     for fighter in FIGHTERS:
         fighters[fighter] = fighter_stats(events, fighter, minutes)
-    with open("stats.json", "w") as f:
-        json.dump({"rounds": rounds, "fighters": fighters}, f, indent=2)
-    for fighter in FIGHTERS:
-        stats = fighters[fighter]
-        percent = stats["accuracy"] * 100
-        score = f"{stats['landed']}/{stats['thrown']}"
-        print(f"{fighter}: {score} landed, {percent:.1f}% accuracy")
+    return {"rounds": rounds, "fighters": fighters}
 
 
 if __name__ == "__main__":
-    main()
+    data = build_stats(read_events("events.csv"))
+    with open("stats.json", "w") as f:
+        json.dump(data, f, indent=2)
+    for fighter in FIGHTERS:
+        stats = data["fighters"][fighter]
+        percent = stats["accuracy"] * 100
+        score = f"{stats['landed']}/{stats['thrown']}"
+        print(f"{fighter}: {score} landed, {percent:.1f}% accuracy")
