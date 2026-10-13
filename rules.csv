@@ -1,0 +1,101 @@
+id,category,tier,name,coach_sees,needs,detection,threshold,coaching_line
+1,pace,1,low_output,Not throwing enough,events,"own attempts per minute, per round",< 3 per min,Volume. You are not throwing enough to win rounds.
+2,pace,1,output_fade,Slows down between rounds,events,own landed in round N vs round N-1,drop > 33%,Your output fell off a cliff from last round. Get it back.
+3,pace,1,round3_collapse,Empties out late,events,round 3 attempts vs round 1 attempts,< 60%,Third round was half the first. Pace yourself or fix your gas tank.
+4,pace,1,slow_start,Gives away the first minute,events,attempts in first 60 s of round / attempts in round,< 12%,Start faster. You spent the first minute watching.
+5,pace,1,late_flurry_only,Only works in the last minute,events,attempts in last 60 s / attempts in round,> 40%,Stealing the last minute does not win the round. Spread it out.
+6,pace,1,outworked,Opponent throws more,events_both,"own attempts / opponent attempts, per round",< 0.6,You are getting outworked. Match his volume at minimum.
+7,pace,1,dead_stretch,Long gaps with nothing thrown,events,longest window with zero own attempts,> 30 s,Thirty seconds without a strike. Stay busy.
+8,pace,1,metronome_rhythm,Throws on a predictable beat,events,coefficient of variation of gaps between own attempts,< 0.3,Same rhythm every time. Break it up so he cannot time you.
+9,offense,1,single_shots,Throws one strike at a time,events,share of attempts with no own follow-up within 1.5 s,> 70%,Singles. Put strikes together.
+10,offense,1,no_three_strike_combos,Never strings three together,events,count of 3+ own strikes within 2.5 s,= 0,No combinations. Two is not a combination.
+11,offense,1,low_accuracy,Misses a lot,events,landed / attempts,< 35%,Accuracy is down. Set them up instead of throwing to throw.
+12,offense,1,high_miss_rate,Throwing from too far,events,missed / attempts,> 40%,You are punching air. Close the distance first.
+13,offense,1,high_blocked_rate,Telegraphs,events,blocked / attempts,> 40%,He sees everything coming. Hide it behind the jab.
+14,offense,1,combo_repeat,Same combination over and over,events,"most common 3-strike own sequence, count per round",≥ 3,Same combo three times. He is waiting on it now.
+15,offense,1,predictable_opener,Always starts with the same strike,events,share of own combos starting with the same strike,> 60%,You open every combo the same way. Change the first strike.
+16,offense,1,predictable_finisher,Always ends with the same strike,events,share of own combos ending with the same strike,> 60%,He knows what the last shot is. Finish somewhere else.
+17,offense,1,level_never_changes,Combos stay on one level,events,share of own 2+ strike combos with all strikes to the same target,> 80%,"Change levels inside the combo. Head, body, head."
+18,offense,1,no_jab_setup_for_power,Throws power shots naked,events,cross/hook/overhand not preceded by own jab within 1 s,> 70%,Jab first. Your power shots have no setup.
+19,offense,1,naked_kicks,Kicks without a setup,events,kicks not preceded by own punch within 1.2 s,> 70%,Kick behind punches. Naked kicks get caught.
+20,offense,1,no_follow_after_landing,Lands and stops,events,own landed strike with no own follow-up within 1.5 s,> 60%,"When it lands, stay on him. You keep stopping after the first one."
+21,variety,1,head_hunting,Only aims for the head,events,head share of own attempts,> 80%,All head. Go to the body and the guard will open.
+22,variety,1,no_body_work,Never goes to the body,events,body share of own attempts,< 10%,Zero body work. Start investing there in round one.
+23,variety,1,no_leg_kicks,Never kicks the leg,events,leg-target kicks share of own attempts,< 5%,No leg kicks. Take his base.
+24,variety,1,one_weapon,One strike does all the work,events,largest single strike type share of own landed,> 50%,One weapon is carrying you. He will take it away.
+25,variety,1,jab_absent,Does not jab,events,jab share of own punches,< 15%,Where is the jab? Everything comes off it.
+26,variety,1,never_doubles_jab,Never doubles up,events,count of own jab-jab within 1 s,= 0,"Double the jab. One jab is a range finder, two is an attack."
+27,variety,1,jab_cross_only,No hooks or uppercuts,events,jab + cross share of own punches,> 85%,Straight punches only. Add hooks and uppercuts.
+28,variety,1,no_inside_weapons,"No elbows, knees, or uppercuts",events,elbow + knee + uppercut count,= 0,No inside game. When it gets close you have nothing.
+29,variety,1,rear_hand_dependency,Everything is the rear hand,events,cross + overhand share of own landed punches,> 60%,Lead hand is dead. All your damage is the rear hand and he knows it.
+30,variety,1,no_hooks,Never throws a hook,events,hook count,= 0,No hooks. You cannot go around a high guard.
+31,variety,1,no_teep,No range control,events,teep count,= 0,No teep. You have no way to keep him off you.
+32,variety,1,same_strike_stretch,Repeats the same strike in a row,events,longest run of consecutive own attempts of the same type,≥ 5,Five of the same strike in a row. Mix it.
+33,defense,1,high_absorption,Gets hit too much,events_both,opponent landed per minute,> 4 per min,You are eating too much. Tighten up.
+34,defense,1,head_absorption,Takes it all on the head,events_both,head share of opponent landed,> 65%,"Everything he lands is on your head. Hands up, chin down."
+35,defense,1,body_worn_down,Gets worked to the body,events_both,opponent body strikes landed per round,≥ 8,He is investing in your body. Elbows in.
+36,defense,1,eats_leg_kicks,Leg kicks land freely,events_both,opponent leg kick landed rate (min 4 thrown),> 70%,Check the leg kicks. He is landing every one.
+37,defense,1,eats_body_kicks,Body kicks land freely,events_both,opponent body kick landed rate (min 3 thrown),> 60%,Body kicks are getting through. Catch or block.
+38,defense,1,head_kick_landed,Got head kicked,events_both,opponent head kicks landed,≥ 1,He landed a head kick. Your rear hand was not there.
+39,defense,1,same_strike_repeated,Keeps eating the same strike,events_both,"most landed opponent strike type, count per round",≥ 4,Same shot four times. Find it and shut it down.
+40,defense,1,opponent_accuracy_high,Easy to hit,events_both,opponent landed / opponent attempts,> 50%,He is landing half of what he throws. Make him miss.
+41,defense,1,absorption_rises,Defense fades round by round,events_both,"opponent landed per round, increasing every round",monotonic rise,You get easier to hit as the fight goes on.
+42,defense,1,late_round_absorption,Gets hit late in rounds,events_both,share of opponent landed in last 60 s,> 40%,You are eating shots in the last minute. That is where rounds are scored.
+43,defense,1,hit_after_throwing,Gets countered,events_both,opponent landed within 1.5 s after own attempt / own attempts,> 40%,You are getting hit after you throw. Get out after the combo.
+44,defense,1,trades_when_landing,Trades instead of exiting,events_both,own landed followed by opponent landed within 1.5 s,> 50%,Every time you land you take one back. Land and leave.
+45,counters,1,no_response_after_hit,Freezes when hit,events_both,share of opponent landed with no own attempt within 2 s,> 60%,"When he hits you, hit back. You freeze."
+46,counters,1,no_counter_rate,Never counters,events_both,own attempts within 1 s after opponent attempt / opponent attempts,< 10%,No counters. He throws for free.
+47,counters,1,no_counter_to_misses,Ignores free openings,events_both,opponent misses with no own attempt within 1 s,> 70%,He is missing and you are not making him pay.
+48,counters,1,lets_kicker_reset,Lets kicks go unanswered,events_both,opponent kicks with no own attempt within 1.2 s,> 70%,He kicks and resets for free. Counter the kick.
+49,guard,2,hands_low_at_rest,Hands down when not throwing,pose,"frames with both wrists below chin, non-striking frames only",> 40%,Hands are low the whole fight. Up.
+50,guard,2,rear_hand_drops_on_jab,Drops the rear hand when jabbing,pose+events,rear wrist below cheek during own jab frames,> 50% of jabs,Rear hand drops on the jab. That is where the counter comes.
+51,guard,2,lead_hand_drops_on_cross,Drops the lead hand when throwing the cross,pose+events,lead wrist below cheek during own cross frames,> 50% of crosses,Lead hand falls when you throw the right. Keep it home.
+52,guard,2,slow_hand_return,Lazy retraction,pose+events,time for striking wrist to return to guard height after own strike,> 0.6 s,Bring it back faster. The hand is out there too long.
+53,guard,2,guard_drops_after_combo,Guard falls after combinations,pose+events,guard height 1 s after combo vs 1 s before,drop > 10% of head height,Hands fall after you combo. Finish the combo with the guard up.
+54,guard,2,guard_decays_in_round,Hands drift down as the round goes,pose,linear trend of guard height across the round,"negative slope, significant","Hands get lower every minute. Fatigue or habit, fix it."
+55,guard,3,guard_drops_when_retreating,Drops hands when backing up,pose_both,guard height while moving away from opponent vs stationary,lower by > 10% of head height,You drop your hands when you back up. That is when he follows.
+56,guard,2,wide_guard,Guard is open in the middle,pose,horizontal wrist-to-nose distance at rest,> 0.8 head widths,Guard is wide. Straight punches go right down the middle.
+57,guard,2,elbows_flared,Body is open,pose,elbow horizontal offset from torso line at rest,> 0.5 shoulder widths,Elbows in. Your body is wide open.
+58,guard,2,chin_up,Chin in the air,pose,"nose height relative to shoulder line, at rest",above line > 50% of frames,Chin down. Tuck it behind the shoulder.
+59,guard,2,arm_hangs_extended,Leaves the arm out,pose+events,elbow angle > 150 deg held after own punch,> 0.4 s,Arm stays out after you punch. Snap it back.
+60,guard,2,hand_drops_on_kick,Same-side hand drops when kicking,pose+events,same-side wrist below shoulder during own round kick,> 60% of kicks,Hand drops every time you kick. That is the counter right hand.
+61,guard,3,hands_at_waist_in_range,Hands at the hips inside range,pose_both,frames with wrists below hips while inside punching range,> 5% of in-range frames,Hands at your waist in punching range. Unacceptable.
+62,head_movement,2,static_head,Head never moves,pose,lateral head position std dev over 10 s windows,< 0.15 head widths,Head is on a stick. Move it.
+63,head_movement,2,no_head_movement_after_punch,Head stays put after punching,pose+events,lateral head displacement in 0.7 s after own punch,"< 0.3 head widths, > 70% of punches",Punch and move your head. Right now you punch and wait.
+64,head_movement,3,no_slip_on_incoming,Does not slip punches,pose_both+events,head off-centerline displacement while opponent punches,"< 0.3 head widths, > 70%",You block everything with your face. Slip.
+65,head_movement,3,leans_back_to_avoid,Leans back instead of slipping,pose_both+events,torso tilts back > 20 deg with no foot movement on opponent punches,> 40% of opponent punches,Leaning back. You get away from the first one and eat the second.
+66,head_movement,3,ducks_straight_down,Ducks straight down,pose_both+events,head drops > 0.5 head heights with lateral < 0.2 on opponent punches,> 40%,Ducking straight down into the uppercut. Slip to the side.
+67,head_movement,2,head_over_lead_knee,Overcommitted forward,pose,nose x beyond lead knee x,> 20% of frames,Head is out over your front foot. You are off balance and open.
+68,head_movement,3,enters_with_still_head,Comes in on a straight line with a still head,pose_both,lateral head movement while closing distance,"< 0.2 head widths, > 70% of entries","When you come in, move your head. You walk into the jab."
+69,head_movement,2,head_pulls_straight_back,Pulls the head straight back after combos,pose+events,"head displacement direction after own combo, lateral component","< 0.2 head widths, > 70% of combos",Straight back after the combo. Angle off instead.
+70,stance,2,stance_narrow,Feet too close,pose,ankle distance in shoulder widths,"< 1.0, > 40% of frames",Stance is narrow. One shove and you are down.
+71,stance,2,stance_wide,Feet too far apart,pose,ankle distance in shoulder widths,"> 2.0, > 40% of frames",Stance is too wide. You cannot move from there.
+72,stance,2,feet_crossed,Crosses the feet,pose,"lead/rear ankle order flips during lateral movement, count per round",≥ 3,"You crossed your feet. Step, do not cross."
+73,stance,3,square_to_opponent,Squared up,pose_both,shoulder line angle relative to line to opponent,"< 20 deg, > 40% of frames",You are square. Turn your shoulder and give him less to hit.
+74,stance,2,no_bounce,Flat-footed,pose,ankle vertical variance over 5 s windows,"near zero, > 60% of windows",Flat feet. Get on your toes.
+75,stance,2,weight_forward,Weight on the front foot,pose,hip midpoint position between ankles,"> 65% toward lead, > 50% of frames",Weight is on your front foot. That is why the leg kick hurts.
+76,stance,2,overextends_cross,Falls into the cross,pose+events,hip midpoint passes lead ankle during own cross,> 40% of crosses,You fall into your right hand. Sit down on it instead.
+77,stance,2,rear_foot_lifts_on_punch,No base on punches,pose+events,rear ankle rises during own punch,"> 0.1 shin lengths, > 40% of punches",Back foot comes off the floor when you punch. No power without it.
+78,stance,2,off_balance_after_kick,Stumbles after kicking,pose+events,support ankle moves > 0.3 shin lengths or torso > 30 deg in 0.5 s after own kick,> 40% of kicks,You are off balance after every kick. Bring it back to stance.
+79,stance,3,stance_collapses_retreating,Stance shrinks when backing up,pose_both,ankle distance while retreating vs stationary,< 70%,"Your feet come together when you back up. Step back, do not shuffle."
+80,footwork,3,backs_straight_up,Retreats in a straight line,pose_both,retreat direction within 15 deg of line to opponent,> 70% of retreats,Straight back. Straight back is where the fence is.
+81,footwork,3,net_retreat,Constantly gives ground,pose_both,net displacement away from opponent over the round,> 2 body widths,You gave ground the whole round. Judges see that.
+82,footwork,3,circles_into_power,Circles into the power hand,pose_both,lateral movement toward opponent's rear-hand side,> 60% of lateral movement,You keep circling into his right. Go the other way.
+83,footwork,2,no_lateral_movement,Only moves forward and back,pose,lateral share of total displacement,< 20%,No side to side. You are a train on a track.
+84,footwork,3,fence_time,Lives on the fence,pose+cage,frames within 1 body width of cage,> 30% of round,You spent a third of the round on the fence. Get off it.
+85,footwork,3,gives_up_center,Cedes the center,pose_both+cage,opponent closer to cage center than you,> 65% of round,He owns the center. Take it back.
+86,footwork,2,no_angle_after_combo,Exits without an angle,pose+events,lateral displacement in 1 s after own combo,"< 0.5 body widths, > 70% of combos",Combo and step off. You combo and stand there.
+87,footwork,3,exits_straight_back,Retreats straight after throwing,pose_both+events,post-combo retreat within 15 deg of line to opponent,> 70% of combos,You leave the same way you came in. Angle out.
+88,footwork,3,enters_straight,Comes in on a straight line,pose_both,approach vector within 10 deg of line to opponent,> 80% of entries,Every entry is straight down the pipe. Come in at an angle.
+89,footwork,3,steps_in_without_strike,Closes distance without throwing,pose_both+events,"distance closed > 0.5 body widths with no own attempt within 1 s, count",≥ 5 per round,You step in and do nothing. Step in with something.
+90,footwork,2,stationary,Does not move,pose,total path length per round in body widths,< 15,You barely moved. A moving target is harder to hit.
+91,footwork,3,lead_foot_inside,Loses the lead-foot battle in open stance,pose_both,"own lead ankle inside opponent's lead ankle, open-stance matchups only",> 70% of frames,Get your lead foot outside his. You are losing the foot battle.
+92,kicking,2,no_pivot_on_kick,No hip turn on round kicks,pose+events,hip line rotation during own round kick,< 20 deg,No hips in the kick. Pivot the support foot.
+93,kicking,2,slow_kick_retraction,Leg hangs after kicking,pose+events,time for kicking ankle to return to floor,> 0.8 s,"Get the leg back. He catches it, you are on your back."
+94,kicking,2,leans_back_on_kick,Falls away from the kick,pose+events,torso angle backward during own round kick,> 35 deg,"You lean away from your own kick. No power, no balance."
+95,kicking,3,doesnt_check_kicks,Never checks,pose_both+events,lead knee rise within 0.3 s of opponent leg kick,"< 0.2 shin lengths, > 70%",You never check. Lift the knee.
+96,kicking,3,checks_late,Checks after contact,pose_both+events,knee rise begins after opponent kick contact frame,> 50% of checks,"Your check is late. React to the hip, not the leg."
+97,range,3,punches_out_of_range,Punches from too far,pose_both+events,own punch attempts with inter-fighter distance > reach + 0.3 body widths,> 30%,You are punching from a step too far. Close first.
+98,range,3,idle_in_range,Stands in range doing nothing,pose_both+events,"time inside punching range with no attempt by either fighter, episodes > 2 s",≥ 5 per round,You are standing in his range. Throw or leave.
+99,clinch,3,clinch_time_high,Spends too long in the clinch,pose_both,frames with torso distance < 0.6 body widths,> 30% of round,A third of the round in the clinch. Break and strike.
+100,clinch,3,passive_in_clinch,Does nothing in the clinch,pose_both+events,"clinch episodes with zero own strikes lasting > 5 s, count",≥ 2 per round,"You are holding in the clinch. Knees, elbows, or get out."
