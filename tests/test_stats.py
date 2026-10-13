@@ -4,8 +4,8 @@ import sys
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.dirname(HERE))
 
-from schemas import read_events, STATS_FIGHTER_KEYS
-from stats import build_stats
+from githit.schemas import read_events, STATS_FIGHTER_KEYS
+from githit.stats import build_stats
 
 FIXTURE = os.path.join(HERE, "round1_events.csv")
 

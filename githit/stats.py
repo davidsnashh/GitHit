@@ -1,6 +1,4 @@
-import json
-
-from schemas import read_events, LANDED_RESULTS
+from githit.schemas import read_events, LANDED_RESULTS
 
 FIGHTERS = ["red", "blue"]
 RESULTS = ["blocked", "missed", "landed_flush"]
@@ -61,9 +59,7 @@ def build_stats(events):
 
 
 if __name__ == "__main__":
-    data = build_stats(read_events("events.csv"))
-    with open("stats.json", "w") as f:
-        json.dump(data, f, indent=2)
+    data = build_stats(read_events("data/labels/fixture_round1/events.csv"))
     for fighter in FIGHTERS:
         stats = data["fighters"][fighter]
         percent = stats["accuracy"] * 100

@@ -1,4 +1,5 @@
-import json
+from githit.schemas import read_events
+from githit.stats import build_stats
 
 FIGHTERS = ["red", "blue"]
 
@@ -64,26 +65,25 @@ def headhunting(stats):
 
 RULES = [low_accuracy, one_strike_carrying, few_body_shots, few_leg_kicks, low_output, fading_rounds, getting_blocked, headhunting]
 
-def fighter_lines(fighter, stats):
+def header_line(fighter, stats):
     percent = stats["accuracy"] * 100
-    lines = [f"{fighter}: {stats['landed']}/{stats['thrown']} landed, {percent:.1f}% accuracy, {stats['landed_per_min']:.1f} landed/min, {stats['landed_flush']} flush"]
+    return f"{fighter}: {stats['landed']}/{stats['thrown']} landed, {percent:.1f}% accuracy, {stats['landed_per_min']:.1f} landed/min, {stats['landed_flush']} flush"
+
+def fighter_lines(events, fighter, stats):
+    lines = [header_line(fighter, stats)]
     for rule in RULES:
         sentence = rule(stats)
         if sentence is not None:
             lines.append(f"  - {sentence}")
     return lines
 
-def main():
-    with open("stats.json") as f:
-        data = json.load(f)
+def build_report(events, stats):
     lines = []
     for fighter in FIGHTERS:
-        lines += fighter_lines(fighter, data["fighters"][fighter])
+        lines += fighter_lines(events, fighter, stats["fighters"][fighter])
         lines.append("")
-    text = "\n".join(lines)
-    print(text)
-    with open("report.md", "w") as f:
-        f.write(text)
+    return "\n".join(lines)
 
 if __name__ == "__main__":
-    main()
+    events = read_events("data/labels/fixture_round1/events.csv")
+    print(build_report(events, build_stats(events)))
